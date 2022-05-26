@@ -14,9 +14,7 @@ public class Elevador{
     }
 
     public void setCapacidadeMaxima(int capacidadeMaxima) {
-        if(capacidadeMaxima > 0){
-            this.capacidadeMaxima = capacidadeMaxima;
-        }
+        this.capacidadeMaxima = capacidadeMaxima;
     }
 
     public int getNumeroUsuarios() {
@@ -44,38 +42,38 @@ public class Elevador{
     }
 
     public void entrarUsuario(){
-        if(this.numeroUsuarios < this.capacidadeMaxima){
-            this.numeroUsuarios++;
-            System.out.println("Usuario entrou no elevador!");
-        }else{
+        if(!(numeroUsuarios < capacidadeMaxima)){
             System.out.println("Elevador em capacidade máxima!");
+            return;
         }
+        numeroUsuarios++;
+        System.out.println("Usuario entrou no elevador!");
     }
 
     public void sairUsuario(){
-        if(this.numeroUsuarios > 0){
-            this.numeroUsuarios--;
-            System.out.println("Usuario saiu do elevador!");
-        }else{
+        if(!(numeroUsuarios > 0)){
             System.out.println("O elevador já está vazio!");
+            return;
         }
+        numeroUsuarios--;
+        System.out.println("Usuario saiu do elevador!");
     }
 
     public void subirAndar(){
-        if(this.andarAtual < this.numeroAndares && this.numeroUsuarios > 0){
-            this.andarAtual++;
-            System.out.println("Subindo...");
-        }else{
+        if(!(andarAtual < numeroAndares && numeroUsuarios > 0)){
             System.out.println("O elevador já está no último andar ou está vazio. Não é possível subir de andar no momento!");
+            return;
         }
+        andarAtual++;
+        System.out.println("Subindo...");
     }
 
     public void descerAndar(){
-        if(this.andarAtual > 0  && this.numeroUsuarios > 0){
-            this.andarAtual--;
-            System.out.println("Descendo...");
-        }else{
+        if(!(andarAtual > 0  && numeroUsuarios > 0)){
             System.out.println("O elevador já está no térreo ou está vazio. Não é possível descer de andar no momento!");
+            return;
         }
+        andarAtual--;
+        System.out.println("Descendo...");
     }
 }
