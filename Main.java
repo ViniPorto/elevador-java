@@ -8,6 +8,8 @@ public class Main {
         menu(elevador);
     }
 
+    //testando
+
     public static void dormir(int segundos){
         try {
             Thread.sleep(segundos * 1000);
